@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.wzx.tools.log.AndroidLogAdapter;
+import com.wzx.tools.log.DiskLogAdapter;
 import com.wzx.tools.log.Logger;
 
 
@@ -15,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //初始化Logger
-        Logger.addLogAdapter(new AndroidLogAdapter());
+//        Logger.addLogAdapter(new AndroidLogAdapter());
+        Logger.addLogAdapter(new DiskLogAdapter());
     }
 
     @Override

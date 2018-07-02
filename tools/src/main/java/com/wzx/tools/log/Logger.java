@@ -8,7 +8,10 @@ import com.wzx.tools.Utils;
 
 /**
  * 描述：整体工作流程：Logger - IPrinter - LogAdapter - FormatStrategy - LogStrategy
- * {@link Logger 获取数据源，将数据委托给{@link IPrinter}}
+ * {@link Logger 获取数据源，将数据委托给{@link IPrinter 打印方式}}
+ * {@link LogAdapter 开启打印}
+ * {@link FormatStrategy 打印格式}
+ * {@link LogStrategy }
  * <p>
  * 创建人： Administrator
  * 创建时间： 2018/7/2

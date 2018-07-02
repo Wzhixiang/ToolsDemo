@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
- * 描述：打印logger方式
+ * 描述：logger打印方式
  * <p>
  * 创建人： Administrator
  * 创建时间： 2018/7/2
