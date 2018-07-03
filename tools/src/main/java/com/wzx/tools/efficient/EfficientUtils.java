@@ -1,7 +1,5 @@
 package com.wzx.tools.efficient;
 
-import android.util.Log;
-
 /**
  * 描述：计算方法执行时间
  * <p>
@@ -15,7 +13,7 @@ public class EfficientUtils {
 
 
     public EfficientUtils() {
-        new Throwable("不允许执行构造方法");
+        throw new UnsupportedOperationException("不能被实例化");
     }
 
     public static void executionTime(ITodo efficient) {
