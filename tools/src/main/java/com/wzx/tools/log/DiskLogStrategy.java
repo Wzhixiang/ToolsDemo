@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static com.wzx.tools.Utils.checkNotNull;
+import static com.wzx.tools.StringUtils.checkNotNull;
 
 /**
  * 描述：

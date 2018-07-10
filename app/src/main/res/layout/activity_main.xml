@@ -47,5 +47,12 @@
         app:layout_constraintLeft_toRightOf="@+id/btn_view"
         app:layout_constraintTop_toBottomOf="@+id/tv_toast" />
 
+    <EditText
+        android:id="@+id/ed_tran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/btn_long" />
+
 
 </android.support.constraint.ConstraintLayout>

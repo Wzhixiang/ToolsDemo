@@ -24,8 +24,8 @@ import static com.wzx.tools.log.Logger.WARN;
  * 更新内容：
  */
 
-public class Utils {
-    private Utils() {
+public class StringUtils {
+    private StringUtils() {
         // Hidden constructor.
     }
 

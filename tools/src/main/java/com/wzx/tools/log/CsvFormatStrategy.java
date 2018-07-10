@@ -6,14 +6,14 @@ import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.wzx.tools.Utils;
+import com.wzx.tools.StringUtils;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.wzx.tools.Utils.checkNotNull;
+import static com.wzx.tools.StringUtils.checkNotNull;
 
 /**
  * 描述：
@@ -72,7 +72,7 @@ public class CsvFormatStrategy implements FormatStrategy {
 
         // level
         builder.append(SEPARATOR);
-        builder.append(Utils.logLevel(priority));
+        builder.append(StringUtils.logLevel(priority));
 
         // tag
         builder.append(SEPARATOR);
@@ -94,7 +94,7 @@ public class CsvFormatStrategy implements FormatStrategy {
 
     @Nullable
     private String formatTag(@Nullable String tag) {
-        if (!Utils.isEmpty(tag) && !Utils.equals(this.tag, tag)) {
+        if (!StringUtils.isEmpty(tag) && !StringUtils.equals(this.tag, tag)) {
             return this.tag + "-" + tag;
         }
         return this.tag;

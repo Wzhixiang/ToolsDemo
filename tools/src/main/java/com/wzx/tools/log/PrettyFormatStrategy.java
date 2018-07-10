@@ -3,9 +3,9 @@ package com.wzx.tools.log;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.wzx.tools.Utils;
+import com.wzx.tools.StringUtils;
 
-import static com.wzx.tools.Utils.checkNotNull;
+import static com.wzx.tools.StringUtils.checkNotNull;
 
 /**
  * 描述：实现{@link FormatStrategy}logger输出格式
@@ -191,7 +191,7 @@ public class PrettyFormatStrategy implements FormatStrategy {
 
     @Nullable
     private String formatTag(@Nullable String tag) {
-        if (!Utils.isEmpty(tag) && !Utils.equals(this.tag, tag)) {
+        if (!StringUtils.isEmpty(tag) && !StringUtils.equals(this.tag, tag)) {
             return this.tag + "-" + tag;
         }
         return this.tag;

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * 更新内容：
  */
 
-public class ArithmeticUtils implements IArithmeticUtils {
+public class ArithmeticUtils {
 
     /**
      * 加
@@ -20,8 +20,7 @@ public class ArithmeticUtils implements IArithmeticUtils {
      * @param y
      * @return
      */
-    @Override
-    public BigDecimal add(String x, String y) {
+    public static BigDecimal add(String x, String y) {
         return new BigDecimal(x).add(new BigDecimal(y));
     }
 
@@ -32,8 +31,7 @@ public class ArithmeticUtils implements IArithmeticUtils {
      * @param y
      * @return
      */
-    @Override
-    public BigDecimal sub(String x, String y) {
+    public static BigDecimal sub(String x, String y) {
         return new BigDecimal(x).subtract(new BigDecimal(y));
     }
 
@@ -44,8 +42,7 @@ public class ArithmeticUtils implements IArithmeticUtils {
      * @param y
      * @return
      */
-    @Override
-    public BigDecimal mul(String x, String y) {
+    public static BigDecimal mul(String x, String y) {
         return new BigDecimal(x).multiply(new BigDecimal(y));
     }
 
@@ -56,21 +53,19 @@ public class ArithmeticUtils implements IArithmeticUtils {
      * @param y
      * @return
      */
-    @Override
-    public BigDecimal div(String x, String y) {
+    public static BigDecimal div(String x, String y) {
         return new BigDecimal(x).subtract(new BigDecimal(y));
     }
 
     /**
-     * 精确
+     * 精确位
      *
      * @param x
      * @param digit
      * @param model
      * @return
      */
-    @Override
-    public BigDecimal scale(String x, int digit, int model) {
+    public static BigDecimal scale(String x, int digit, int model) {
         return new BigDecimal(x).setScale(digit, model);
     }
 }

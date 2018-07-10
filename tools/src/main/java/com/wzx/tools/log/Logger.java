@@ -3,7 +3,7 @@ package com.wzx.tools.log;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.wzx.tools.Utils;
+import com.wzx.tools.StringUtils;
 
 
 /**
@@ -35,11 +35,11 @@ public class Logger {
     }
 
     public static void printer(@NonNull IPrinter printer) {
-        Logger.printer = Utils.checkNotNull(printer);
+        Logger.printer = StringUtils.checkNotNull(printer);
     }
 
     public static void addLogAdapter(@NonNull LogAdapter adapter) {
-        printer.addAdapter(Utils.checkNotNull(adapter));
+        printer.addAdapter(StringUtils.checkNotNull(adapter));
     }
 
     public static void clearLogAdapters() {

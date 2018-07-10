@@ -2,17 +2,24 @@ package com.wzx.tools.toolsdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 
+import com.wzx.tools.GsonUtils;
 import com.wzx.tools.ToastUtills;
 import com.wzx.tools.log.AndroidLogAdapter;
 import com.wzx.tools.log.DiskLogAdapter;
 import com.wzx.tools.log.Logger;
+import com.wzx.tools.textview.InputLowerToUpper;
+import com.wzx.tools.textview.MoneyTextWatcher;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText edTran;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +29,17 @@ public class MainActivity extends AppCompatActivity {
         //初始化Logger
 //        Logger.addLogAdapter(new AndroidLogAdapter());
         Logger.addLogAdapter(new DiskLogAdapter());
+
+        edTran = findViewById(R.id.ed_tran);
+
+        edTran.setTransformationMethod(new InputLowerToUpper());
+
+        edTran.addTextChangedListener(new MoneyTextWatcher.Builder().addEdittext(edTran).build());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-//        Logger.i("message");
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -37,7 +47,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
-//        Logger.json("{\"value\": \"New\", \"onclick\": \"CreateNewDoc\",\"value\": \"New\", \"onclick\": \"CreateNewDoc\",\"value\": \"New\", \"onclick\": \"CreateNewDoc\"}");
+        String userJson = "{\"name\":\"wzx\", \"sex\":\"0\"}";
+
+        //Logger打印json
+        Logger.json(userJson);
+        //gson转换
+        User user = GsonUtils.gsonToBean(userJson, User.class);
+        Logger.i(user.getName());
+
     }
 
     public void onToast(View view) {

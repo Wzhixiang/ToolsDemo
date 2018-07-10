@@ -3,7 +3,7 @@ package com.wzx.tools.log;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.wzx.tools.Utils;
+import com.wzx.tools.StringUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +22,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import static com.wzx.tools.Utils.checkNotNull;
+import static com.wzx.tools.StringUtils.checkNotNull;
 import static com.wzx.tools.log.Logger.ASSERT;
 import static com.wzx.tools.log.Logger.DEBUG;
 import static com.wzx.tools.log.Logger.ERROR;
@@ -67,7 +67,7 @@ public class LoggerPrinter implements IPrinter {
 
     @Override
     public void d(@Nullable Object object) {
-        log(DEBUG, null, Utils.toString(object));
+        log(DEBUG, null, StringUtils.toString(object));
     }
 
     @Override
@@ -102,7 +102,7 @@ public class LoggerPrinter implements IPrinter {
 
     @Override
     public void json(@Nullable String json) {
-        if (Utils.isEmpty(json)) {
+        if (StringUtils.isEmpty(json)) {
             d("Empty/Null json content");
             return;
         }
@@ -127,7 +127,7 @@ public class LoggerPrinter implements IPrinter {
 
     @Override
     public void xml(@Nullable String xml) {
-        if (Utils.isEmpty(xml)) {
+        if (StringUtils.isEmpty(xml)) {
             d("Empty/Null xml content");
             return;
         }
@@ -150,12 +150,12 @@ public class LoggerPrinter implements IPrinter {
                                  @Nullable String message,
                                  @Nullable Throwable throwable) {
         if (throwable != null && message != null) {
-            message += " : " + Utils.getStackTraceString(throwable);
+            message += " : " + StringUtils.getStackTraceString(throwable);
         }
         if (throwable != null && message == null) {
-            message = Utils.getStackTraceString(throwable);
+            message = StringUtils.getStackTraceString(throwable);
         }
-        if (Utils.isEmpty(message)) {
+        if (StringUtils.isEmpty(message)) {
             message = "Empty/NULL log message";
         }
 

@@ -3,7 +3,7 @@ package com.wzx.tools.log;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import static com.wzx.tools.Utils.checkNotNull;
+import static com.wzx.tools.StringUtils.checkNotNull;
 
 /**
  * 描述：实现{@link LogAdapter}方法，设置logger打印格式
