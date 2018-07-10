@@ -2,19 +2,21 @@ package com.wzx.tools.toolsdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
 import com.wzx.tools.GsonUtils;
+import com.wzx.tools.ResourceUtils;
 import com.wzx.tools.ToastUtills;
+import com.wzx.address.Province;
 import com.wzx.tools.log.AndroidLogAdapter;
-import com.wzx.tools.log.DiskLogAdapter;
 import com.wzx.tools.log.Logger;
 import com.wzx.tools.textview.InputLowerToUpper;
 import com.wzx.tools.textview.MoneyTextWatcher;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //初始化Logger
-//        Logger.addLogAdapter(new AndroidLogAdapter());
-        Logger.addLogAdapter(new DiskLogAdapter());
+        Logger.addLogAdapter(new AndroidLogAdapter());
 
         edTran = findViewById(R.id.ed_tran);
 
@@ -55,6 +56,26 @@ public class MainActivity extends AppCompatActivity {
         User user = GsonUtils.gsonToBean(userJson, User.class);
         Logger.i(user.getName());
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String addressJson = ResourceUtils.getAssets(MainActivity.this, "address.txt");
+
+                List<Province> provinces = GsonUtils.jsonToList(addressJson, Province.class);
+
+                Logger.i("省份数：" + provinces.size());
+
+//                for (Province p : provinces) {
+//                    Logger.i(p.getName());
+//                    for (ICity c : p.getCity()) {
+//                        Logger.i(c.getName());
+//                        for (String a : c.getArea()) {
+//                            Logger.i(a);
+//                        }
+//                    }
+//                }
+            }
+        }).start();
     }
 
     public void onToast(View view) {

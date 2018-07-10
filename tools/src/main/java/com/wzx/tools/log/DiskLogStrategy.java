@@ -29,7 +29,8 @@ public class DiskLogStrategy implements LogStrategy {
         this.handler = checkNotNull(handler);
     }
 
-    @Override public void log(int level, @Nullable String tag, @NonNull String message) {
+    @Override
+    public void log(int level, @Nullable String tag, @NonNull String message) {
         checkNotNull(message);
 
         // do nothing on the calling thread, simply pass the tag/msg to the background thread
@@ -38,7 +39,8 @@ public class DiskLogStrategy implements LogStrategy {
 
     static class WriteHandler extends Handler {
 
-        @NonNull private final String folder;
+        @NonNull
+        private final String folder;
         private final int maxFileSize;
 
         WriteHandler(@NonNull Looper looper, @NonNull String folder, int maxFileSize) {
@@ -48,7 +50,8 @@ public class DiskLogStrategy implements LogStrategy {
         }
 
         @SuppressWarnings("checkstyle:emptyblock")
-        @Override public void handleMessage(@NonNull Message msg) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
             String content = (String) msg.obj;
 
             FileWriter fileWriter = null;

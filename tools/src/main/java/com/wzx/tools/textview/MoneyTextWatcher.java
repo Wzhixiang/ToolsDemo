@@ -6,7 +6,8 @@ import android.widget.EditText;
 
 /**
  * 描述：限制输入两位小数，小数点前自动补0
- * {@link android.widget.TextView  addTextChangedListener(TextWatcher textWatcher)监听文本变化}
+ * {@link android.widget.TextView addTextChangedListener(TextWatcher textWatcher)在监听文本变化方法中使用该类}
+ * {@link #onTextChanged(CharSequence, int, int, int) 在该方法中判断限制输入字符}
  * <p>
  * 创建人： Administrator
  * 创建时间： 2018/7/9

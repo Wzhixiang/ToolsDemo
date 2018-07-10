@@ -1,4 +1,4 @@
-package com.wzx.tools;
+package com.wzx.address;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,10 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.wzx.tools.test", appContext.getPackageName());
-
-        String addressJson = ResourceUtils.getAssets(appContext, "address.txt");
-
-        System.out.print(addressJson == null ? "无法打开" : addressJson.length());
+        assertEquals("com.wzx.address.test", appContext.getPackageName());
     }
 }

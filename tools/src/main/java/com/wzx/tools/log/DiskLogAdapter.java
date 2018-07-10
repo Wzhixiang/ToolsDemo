@@ -26,11 +26,13 @@ public class DiskLogAdapter implements LogAdapter {
         this.formatStrategy = checkNotNull(formatStrategy);
     }
 
-    @Override public boolean isLoggable(int priority, @Nullable String tag) {
+    @Override
+    public boolean isLoggable(int priority, @Nullable String tag) {
         return true;
     }
 
-    @Override public void log(int priority, @Nullable String tag, @NonNull String message) {
+    @Override
+    public void log(int priority, @Nullable String tag, @NonNull String message) {
         formatStrategy.log(priority, tag, message);
     }
 }
